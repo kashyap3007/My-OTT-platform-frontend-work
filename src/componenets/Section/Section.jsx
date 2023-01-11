@@ -3,7 +3,7 @@ import Card from "./Card";
 
 function Section(props) {
   // Set Data
-  // imgUrl = Total Data
+  // imgUrl = Trending and Latest data
   const [imageUrl, setImageUrl] = useState([]);
   useEffect(() => {
     const url = "http://localhost:5000/hotstar/get";
@@ -13,7 +13,43 @@ function Section(props) {
       .catch((err) => console.log(err));
   }, []);
 
-  // console.log(imageUrl);
+  const [sportsUrl, setsportsUrl] = useState([]);
+  useEffect(() => {
+    const url = "http://localhost:5000/hotstar/sports/get";
+    fetch(url)
+      .then((data) => data.json())
+      .then((data) => setsportsUrl(data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  const [moviesUrl, setmoviesUrl] = useState([]);
+  useEffect(() => {
+    const url = "http://localhost:5000/hotstar/movies/get";
+    fetch(url)
+      .then((data) => data.json())
+      .then((data) => setmoviesUrl(data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  const [tvUrl, settvUrl] = useState([]);
+  useEffect(() => {
+    const url = "http://localhost:5000/hotstar/tv/get";
+    fetch(url)
+      .then((data) => data.json())
+      .then((data) => settvUrl(data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  const [specialUrl, setspecialUrl] = useState([]);
+  useEffect(() => {
+    const url = "http://localhost:5000/hotstar/special/get";
+    fetch(url)
+      .then((data) => data.json())
+      .then((data) => setspecialUrl(data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  // console.log(specialUrl);
 
   const [isTranslate, setIsTranslate] = useState(false);
   const [translateValue, setTranslateValue] = useState(0);
@@ -40,15 +76,24 @@ function Section(props) {
     }
   }
   const customStyle = {
-    transform: "translateX(" + translateValue + "%)", 
+    transform: "translateX(" + translateValue + "%)",
   };
+
+  let hello = [];
+
+  if (props.name === "Sports") hello = sportsUrl;
+  else if (props.name === "Movies") hello = moviesUrl;
+  else if (props.name === "TV-Shows") hello = tvUrl;
+  else if (props.name === "Hostar Special") hello = specialUrl;
+  else hello = imageUrl;
+
   return (
     <>
       <div className="section text-light" style={{ overflow: "hidden" }}>
         <h2>{props.name}</h2>
         <div className="section-body text-dark" style={customStyle}>
-          {imageUrl.map((image, index) => {
-            return <Card image={image} key={index} click= {props.click}/>;
+          {hello.map((image, index) => {
+            return <Card image={image} key={index} click={props.click} />;
           })}
         </div>
         <i

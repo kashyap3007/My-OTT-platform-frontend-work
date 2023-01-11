@@ -41,6 +41,7 @@ export default function Signup(props) {
         localStorage.setItem("UserName", data.username);
         // localStorage.setItem("Password", data.password);
         props.setLogin(data.username, data._id);
+
         if (data === "User Not Found" || data === "Password Not Match.....") {
           // window.alert(data);
           setAlert(() => {

@@ -10,15 +10,19 @@ import ProfilePage from "./componenets/Section/ProfilePage";
 
 function App() {
   const hello = localStorage.getItem("UserName");
-  console.log(hello);
+  // console.log(hello);
 
   const [username, setUsername] = useState("");
   const [id, setId] = useState("");
+  const [category, setCategory] = useState("");
   function setLogin(name, id) {
     setUsername(name);
     setId(id);
-    // console.log(username , isLogin);
+    // console.log(username, isLogin);
   }
+
+  // console.log("MC");
+
   return (
     <>
       {/* {isHome ? <Home click={clickHandler}/> : <PlayVideo click={clickHandler}/>} */}

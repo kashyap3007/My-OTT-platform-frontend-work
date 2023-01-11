@@ -130,7 +130,7 @@ function Navbar(props) {
                         Football
                       </Link>
                     </li>
-                    <li></li>
+
                     <li>
                       <Link className="dropdown-item" to="/">
                         Basketball
