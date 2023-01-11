@@ -1,0 +1,11 @@
+.video{
+    width: 80vw !important;
+    height: 35vw !important;
+    margin: 0 auto;
+}
+
+.video-item{
+    margin-left: 120px;
+    width: 78%;
+    height: 100%;
+}
