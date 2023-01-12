@@ -9,16 +9,24 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProfilePage from "./componenets/Section/ProfilePage";
 
 function App() {
+  const [cardInfo, setCardInfo]= useState({
+    id: "",
+    category: ""
+  })
+
   const hello = localStorage.getItem("UserName");
   // console.log(hello);
 
   const [username, setUsername] = useState("");
   const [id, setId] = useState("");
-  const [category, setCategory] = useState("");
+  // const [category, setCategory] = useState("");
   function setLogin(name, id) {
     setUsername(name);
     setId(id);
     // console.log(username, isLogin);
+  }
+  function setCard(name, value){
+    setCardInfo((prevValue)=>{return {...prevValue, [name]: value}});
   }
 
   // console.log("MC");
@@ -38,13 +46,13 @@ function App() {
           <Route
             exact
             path="/play"
-            element={<PlayVideo username={username} />}
+            element={<PlayVideo cardInfo={cardInfo} username={username} />}
           />
           {/* <Route exact path="/home" element={<Home username={username} />} /> */}
           {hello ? (
-            <Route exact path="/home" element={<Home username={hello} />} />
+            <Route exact path="/home" element={<Home setCard={setCard} username={hello} />} />
           ) : (
-            <Route exact path="/home" element={<Home username={username} />} />
+            <Route exact path="/home" element={<Home setCard={setCard} username={username} />} />
           )}
 
           <Route

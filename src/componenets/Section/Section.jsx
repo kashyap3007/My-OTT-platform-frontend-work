@@ -81,11 +81,12 @@ function Section(props) {
 
   let hello = [];
 
-  if (props.name === "Sports") hello = sportsUrl;
-  else if (props.name === "Movies") hello = moviesUrl;
-  else if (props.name === "TV-Shows") hello = tvUrl;
-  else if (props.name === "Hostar Special") hello = specialUrl;
-  else hello = imageUrl;
+  if (props.name === "Sports") {hello = sportsUrl; }
+  else if (props.name === "Movies") {hello = moviesUrl;  }
+  else if (props.name === "TV-Shows") {hello = tvUrl; }
+  else if (props.name === "Hostar Special") {hello = specialUrl;}
+  else {hello = imageUrl;}
+  // console.log(props.name);
 
   return (
     <>
@@ -93,7 +94,7 @@ function Section(props) {
         <h2>{props.name}</h2>
         <div className="section-body text-dark" style={customStyle}>
           {hello.map((image, index) => {
-            return <Card image={image} key={index} click={props.click} />;
+            return <Card name={props.name} image={image} setCard={props.setCard} key={index} click={props.click} />;
           })}
         </div>
         <i

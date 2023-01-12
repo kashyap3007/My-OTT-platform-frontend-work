@@ -6,7 +6,7 @@ import Play from "./Section/Play";
 import Navbar from "./Navbar";
 
 function PlayVideo(props) {
-  //   console.log(props);
+    console.log(props.cardInfo);
   return (
     <>
       <Navbar username={props.username} />

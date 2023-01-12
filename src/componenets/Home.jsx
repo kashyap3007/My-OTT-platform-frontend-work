@@ -10,15 +10,15 @@ function Home(props){
         <>
          <Navbar username= {props.username} />
         <Carousel click={props.click}/>
-        <Section name={"Latest and Trending"}  />
-        <Section name={"Sports"}  />
-        <Section name={"Movies"}  />
-        <Section name={"TV-Shows"  }/>
-        <Section name={"Hostar Special" }/>
+        <Section setCard={props.setCard} name={"Latest and Trending"}  />
+        <Section setCard={props.setCard}  name={"Sports"}  />
+        <Section setCard={props.setCard}  name={"Movies"}  />
+        <Section setCard={props.setCard}  name={"TV-Shows"  }/>
+        <Section setCard={props.setCard}  name={"Hostar Special" }/>
         <Footer/>  
         {/* <ProfilePage/> */}
         {/* <Carousel click={props.click}/>
-        <Section name={"Latest and Trending"} click={props.click} />
+        <Section name={"Latest and Trending"} />
         <Section name={"Sports"} click={props.click} />
         <Section name={"Movies"} click={props.click} />
         <Section name={"TV-Shows"  }click={props.click}/>

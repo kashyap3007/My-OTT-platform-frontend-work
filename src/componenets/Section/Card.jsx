@@ -1,19 +1,25 @@
+import { Button } from "bootstrap";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Play from "./Play";
 
 function Card(props) {
+  const navigate= useNavigate();
   // console.log(props);
   // console.log(props.image);
 
   const [ishello, setIshello] = useState(false);
-
   const [isTrue, setIsTrue] = useState(false);
   function mouseOverHandler() {
     setIsTrue(true);
   }
   function mouseOutHandler() {
     setIsTrue(false);
+  }
+  function clickWatch (){
+    props.setCard('id', props.image.id);
+    props.setCard('category', props.name);
+    navigate("/play");
   }
   return (
     <>
@@ -33,12 +39,12 @@ function Card(props) {
             <h5 class="card-title">{props.image.name}</h5>
             <p class="card-text">{props.image.details}</p>
             {/* <Link to="/" class="btn btn-primary" onClick={props.click}> */}
-            <Link to="/play" class="btn btn-primary" onClick={props.click}>
+            <button  class="btn btn-primary" onClick={clickWatch}>
               Watch
               {/* {props.image.category == "Special"
                 ? console.log("Madarchod")
                 : console.log("Behenchod")} */}
-            </Link>
+            </button>
           </div>
         ) : (
           <img
