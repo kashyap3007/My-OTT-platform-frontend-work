@@ -10,7 +10,7 @@ function PlayVideo(props) {
   return (
     <>
       <Navbar username={props.username} />
-      <Play />
+      <Play cardInfo={props.cardInfo} />
       <Section name={"More like this"} />
       <Footer />
     </>

@@ -86,7 +86,6 @@ function Section(props) {
   else if (props.name === "TV-Shows") {hello = tvUrl; }
   else if (props.name === "Hostar Special") {hello = specialUrl;}
   else {hello = imageUrl;}
-  // console.log(props.name);
 
   return (
     <>

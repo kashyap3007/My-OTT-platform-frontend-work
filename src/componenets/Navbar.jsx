@@ -12,7 +12,7 @@ function Navbar(props) {
     <>
       <nav
         className="navbar navbar-expand-lg "
-        style={{ background: "#100134", padding: "0%" }}
+        style={{ background: "#100134", padding: "0" }}
       >
         <div className="container-fluid ">
           <Link className="navbar-brand" to="/">
@@ -34,19 +34,19 @@ function Navbar(props) {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link
-                  className="nav-link active text-light"
-                  aria-current="page"
-                  to="/home"
-                >
-                  <div className="my-3">
-                    <b>Home</b>
-                  </div>
-                </Link>
-              </li>
-              <div className="my-3">
+            <ul className="navbar-nav me-auto mb-1 mb-lg-0">
+              <div className="my-2">
+                <li className="nav-item">
+                  <Link
+                    className="nav-link active text-light"
+                    aria-current="page"
+                    to="/home"
+                  >
+                    <div className="my-2">
+                      <b>Home</b>
+                    </div>
+                  </Link>
+                </li>
                 <li className="nav-item dropdown">
                   <Link
                     className="nav-link dropdown-toggle text-light"
@@ -77,10 +77,10 @@ function Navbar(props) {
                   </ul>
                 </li>
               </div>
-              <div className="my-3">
-                <li className="nav-item dropdown">
+              <div className="my-2">
+                <li className="nav-item dropdown ">
                   <Link
-                    className="nav-link dropdown-toggle text-light"
+                    className="nav-link dropdown-toggle text-light my-2"
                     to="/"
                     role="button"
                     data-bs-toggle="dropdown"
@@ -108,10 +108,10 @@ function Navbar(props) {
                   </ul>
                 </li>
               </div>
-              <div className="my-3">
+              <div className="my-2">
                 <li className="nav-item dropdown">
                   <Link
-                    className="nav-link dropdown-toggle text-light"
+                    className="nav-link dropdown-toggle text-light my-2"
                     to="/"
                     role="button"
                     data-bs-toggle="dropdown"
