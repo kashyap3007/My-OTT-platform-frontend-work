@@ -7,6 +7,7 @@ import Signup from "./componenets/Section/Signup";
 import Login from "./componenets/Section/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProfilePage from "./componenets/Section/ProfilePage";
+import Sports from "./componenets/Section/Sports";
 
 function App() {
   const [cardInfo, setCardInfo]= useState({
@@ -42,6 +43,11 @@ function App() {
             exact
             path="/"
             element={<Login username={username} setLogin={setLogin} />}
+          />
+          <Route
+            exact
+            path="/sports"
+            element={<Sports/>}
           />
           <Route
             exact
