@@ -7,13 +7,13 @@ import Signup from "./componenets/Section/Signup";
 import Login from "./componenets/Section/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProfilePage from "./componenets/Section/ProfilePage";
-import Sports from "./componenets/Section/Sports";
+import SinglePage from "./componenets/Section/SinglePage";
 
 function App() {
-  const [cardInfo, setCardInfo]= useState({
+  const [cardInfo, setCardInfo] = useState({
     id: "",
-    category: ""
-  })
+    category: "",
+  });
 
   const hello = localStorage.getItem("UserName");
   // console.log(hello);
@@ -26,8 +26,10 @@ function App() {
     setId(id);
     // console.log(username, isLogin);
   }
-  function setCard(name, value){
-    setCardInfo((prevValue)=>{return {...prevValue, [name]: value}});
+  function setCard(name, value) {
+    setCardInfo((prevValue) => {
+      return { ...prevValue, [name]: value };
+    });
   }
 
   // console.log("MC");
@@ -44,11 +46,7 @@ function App() {
             path="/"
             element={<Login username={username} setLogin={setLogin} />}
           />
-          <Route
-            exact
-            path="/sports"
-            element={<Sports/>}
-          />
+          {/* <Route exact path="/sports" element={<Sports />} /> */}
           <Route
             exact
             path="/play"
@@ -56,9 +54,17 @@ function App() {
           />
           {/* <Route exact path="/home" element={<Home username={username} />} /> */}
           {hello ? (
-            <Route exact path="/home" element={<Home setCard={setCard} username={hello} />} />
+            <Route
+              exact
+              path="/home"
+              element={<Home setCard={setCard} username={hello} />}
+            />
           ) : (
-            <Route exact path="/home" element={<Home setCard={setCard} username={username} />} />
+            <Route
+              exact
+              path="/home"
+              element={<Home setCard={setCard} username={username} />}
+            />
           )}
 
           <Route
@@ -84,6 +90,53 @@ function App() {
               element={<ProfilePage username={username} />}
             />
           )}
+          {/* ----------------------------------------------------------------------------------------------- */}
+          <Route
+            exact
+            path="/Tv-Shows"
+            element={
+              <SinglePage name="Tv" setCard={setCard} username={username} />
+            }
+          />
+          <Route
+            exact
+            path="/Special"
+            element={
+              <SinglePage
+                name="special"
+                setCard={setCard}
+                username={username}
+              />
+            }
+          />
+          <Route
+            exact
+            path="/Movies"
+            element={
+              <SinglePage name="Movies" setCard={setCard} username={username} />
+            }
+          />
+          <Route
+            exact
+            path="/Sports"
+            element={
+              <SinglePage name="sports" setCard={setCard} username={username} />
+            }
+          />
+          <Route
+            exact
+            path="/Trending"
+            element={
+              <SinglePage
+                name="Trending"
+                setCard={setCard}
+                username={username}
+              />
+            }
+          />
+
+          {/* --------------------------------------------------------------------------------------------- */}
+
           {/* <Route
             exact
             path="/profile"

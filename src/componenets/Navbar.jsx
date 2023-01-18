@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Profile from "./Section/Profile";
 
-function Navbar(props) {
+function Navbar({ username, setSearch, search, setIsSend }) {
+  const changeHandler = (event) => {
+    setSearch(event.target.value);
+  };
+  // console.log(search);
+  const searchMovie = (e) => {
+    e.preventDefault();
+    setIsSend(true);
+  };
   const navigate = useNavigate();
   function logout() {
     navigate("/");
@@ -147,6 +155,24 @@ function Navbar(props) {
                 </Link>
               </li>
             </ul>
+            <form class="d-flex m-2" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                name="search"
+                onChange={changeHandler}
+                value={search}
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button
+                class="btn btn-outline-success"
+                type="submit"
+                onClick={searchMovie}
+              >
+                Search
+              </button>
+            </form>
             <div className="d-grid gap-2 d-md-flex justify-content-md-end">
               {/* <Link
                 to="/login"
@@ -154,17 +180,18 @@ function Navbar(props) {
                 type="button"
                 data-bs-toggle="button"
               >Login</Link> */}
-              {props.username !== "" ? (
+              {username !== "" ? (
                 <>
                   <Link
                     to="#"
                     onClick={logout}
                     type="button"
                     className="btn btn-outline-danger"
+                    ś
                   >
                     Logout
                   </Link>{" "}
-                  <Profile username={props.username} />
+                  <Profile username={username} />
                 </>
               ) : (
                 <>

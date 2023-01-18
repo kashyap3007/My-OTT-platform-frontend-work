@@ -5,13 +5,13 @@ function Carousel(props) {
   // const imgArr=["first", "second", "third" ];
   const [imageUrl, setImageUrl] = useState([]);
   useEffect(() => {
-    const url = "http://localhost:5000/hotstar/start/get";
+    const url = "http://localhost:5000/hotstar/start/Trending/get";
     fetch(url)
       .then((data) => data.json())
       .then((data) => setImageUrl(data))
       .catch((err) => console.log(err));
   }, []);
-  // console.log(imageUrl.length);
+  // console.log(props);
   return (
     <>
       <div
@@ -24,7 +24,7 @@ function Carousel(props) {
           {imageUrl.map((url, index) => {
             return (
               <button
-              key={index}
+                key={index}
                 type="button"
                 data-bs-target="#carouselExampleCaptions"
                 data-bs-slide-to={index}
@@ -41,7 +41,14 @@ function Carousel(props) {
 
         <div className="carousel-inner">
           {imageUrl.map((image, index) => {
-            return <CarouselSlide image={image} key={index} click={props.click}/>;
+            return (
+              <CarouselSlide
+                image={image}
+                key={index}
+                click={props.click}
+                setCard={props.setCard}
+              />
+            );
           })}
         </div>
         <button
