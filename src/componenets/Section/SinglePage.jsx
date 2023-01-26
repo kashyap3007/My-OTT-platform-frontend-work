@@ -51,7 +51,7 @@ const SinglePage = (props) => {
         }
         return (
           <div>
-            <div class="container d-flex align-items-center justify-content-center flex-wrap">
+            <div class="container d-flex align-items-center justify-content-center flex-wrap ">
               <div class="boxi">
                 <div class="body">
                   <div class="imgContainer">
